@@ -22,5 +22,7 @@ class PagesController < ApplicationController
   end
 
   def prices
+  	@symbol = params[:sym]
+  	@symbol = @symbol.to_s.upcase
   end
 end
