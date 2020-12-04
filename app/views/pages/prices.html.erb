@@ -1,9 +1,18 @@
-<% @search["DISPLAY"].each do |key, value| %>
-<div class="jumbotron">
-  <h1 class="display-4"><%= key %> </h1>
-  Price: <%= value["USD"]["PRICE"] %><br>
-  24hr High: <%= value["USD"]["HIGHDAY"] %><br>
-  24hr Low: <%= value["USD"]["LOWDAY"] %><br>
-  Marketcap: <%= value["USD"]["MKTCAP"] %><br>
-</div>	
+<% if @symbol %>	
+	<% if @search["Response"] %>
+		<h4>That symbol <%= Symbol %> doesnt exist, try again...</h4>
+	<% else %>
+
+		<% @search["DISPLAY"].each do |key, value| %>
+			<div class="jumbotron">
+			  <h1 class="display-4"><%= key %> </h1>
+			  Price: <%= value["USD"]["PRICE"] %><br>
+			  24hr High: <%= value["USD"]["HIGHDAY"] %><br>
+			  24hr Low: <%= value["USD"]["LOWDAY"] %><br>
+			  Marketcap: <%= value["USD"]["MKTCAP"] %><br>
+			</div>	
+		<% end %>
+	<% end %>	
+<% else %>
+	<h4>Please enter a crypto symbol in the form above...</h4>
 <% end %>

@@ -22,16 +22,19 @@ class PagesController < ApplicationController
   end
 
   def prices
-  	@symbol = params[:sym]
-  	@symbol = @symbol.to_s.upcase
 
   	require 'net/http'
   	require 'json'
+  	@symbol = params[:sym]
 
-  	#Search field API data check
-   	@search_url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + @symbol + '&tsyms=USD'
-  	@search_uri = URI(@search_url)
-  	@search_response = Net::HTTP.get(@search_uri)
-  	@search = JSON.parse(@search_response)
+  	if @symbol
+	  	#Search field API data check
+	   	@search_url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + @symbol + '&tsyms=USD'
+	  	@search_uri = URI(@search_url)
+	  	@search_response = Net::HTTP.get(@search_uri)
+	  	@search = JSON.parse(@search_response)
+	  end
+
+
   end
 end
