@@ -1,11 +1,19 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<% @news["Data"] %>
+<% @news["Data"] %>	
 
-<% for x in @news["Data"] %>
-	<img src="<%= x["imageurl"] %>"><br><br>
-	<strong><%= x["title"] %></strong><br>
-	<%= x["body"] %><br><br>
-	<a href="<%= x["url"] %>">Read more...</a><hr><br>
+<% for x in @news["Data"] %>	
+
+	<div class="card" style="width: 18rem;">
+	  <img src="<%= x["imageurl"] %>" class="card-img-top" alt="<%= x["source"] %>">
+	  <div class="card-body">
+	    <h5 class="card-title"><%= x["title"] %></h5>
+	    <p class="card-text"><%= x["body"] %></p>
+	    <a href="<%= x["url"] %>" class="btn btn-secondary">Read more...</a>
+	  </div>
+	</div>
+	<br><br>
+
 <% end %>
+		
