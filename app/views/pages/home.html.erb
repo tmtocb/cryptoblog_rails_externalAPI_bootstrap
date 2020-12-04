@@ -1,15 +1,15 @@
-<table class="table">
+<table class="table table-sm table-striped table-bordered table-hover">
   <thead class="thead-dark">
-  	<% @prices["DISPLAY"].each do |key, value| %>	
-		<tr>
+  	<tr>
       <th scope="col">Name</th>
       <th scope="col">Price</th>
       <th scope="col">24h High</th>
       <th scope="col">24h Low</th>
       <th scope="col">Market</th>
     </tr>
-  </thead>
+	</thead>
   <tbody>
+  	<% @prices["DISPLAY"].each do |key, value| %>	
     <tr>
       <td><%= key %></td>
       <td><%= value["USD"]["PRICE"] %></td>
